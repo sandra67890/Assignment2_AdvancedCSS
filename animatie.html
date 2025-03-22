@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #circle{
+            width:300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            background: conic-gradient(#55fb9f, #fb5dad, #55fb9f, #b97aff, #55fb9f);
+            animation: rotireCerc 2s linear infinite;
+            
+        }
+
+        #circle::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(#55fb9f, #fb5dad, #55fb9f, #b97aff, #55fb9f);
+            filter: blur(50px);
+            /* transform: translate(-50%, -50%); */
+            z-index: -1;
+            animation: rotireUmbra 2s linear infinite;
+        }
+        
+        #circle::after{
+            content:"";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width:260px;
+            height:260px;
+            border-radius: 50%;
+            background-color: black;
+        
+            transform: translate(-50%, -50%);
+            filter: blur(50%);
+            animation-name: rotireCerc 2s linear infinite;
+        }
+
+        #cerc2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(12, 6, 44);
+            transform: translate(-50%, -50%);
+            animation: animatie3 2s linear infinite;
+            z-index: 1;
+        }
+        @keyframes rotireUmbra{
+            from{
+               
+                transform: translate(-50%, -50%) rotate(0deg);
+
+            }
+            to{
+                
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+    
+        }
+        @keyframes rotireCerc{
+            from{
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        } 
+        @keyframes animatie3{
+            0%{
+                width: 50px;
+                height:50px;
+                background-color: rgb(12, 6, 44);
+            }
+
+            50%{
+                width: 150px;
+                height: 150px;
+                background-color:rgb(12, 6, 44);
+            }
+
+            100%{
+                width:250px;
+                height: 250px;
+                background-color: rgb(12, 6, 44);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="circle">
+        <div id="cerc2"></div>
+    </div>
+</body>
+</html>
